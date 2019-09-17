@@ -1,0 +1,33 @@
+//
+//  PrefixHeader.pch
+//  listPhoto
+//
+//  Created by     gaoxing on 2019/9/16.
+//  Copyright © 2019 gaoxing. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "APPHeader.h"
+#import "IMPHeader.h"
+#import "KEYHeader.h"
+#import "URLHeader.h"
+
+
+//字符串判空
+#define isEmptyString(s) (((s) == nil) || ([(s) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length == 0))
+
+// 日志输出
+#ifdef DEBUG
+//#define NSLog(...) NSLog(__VA_ARGS__)
+//#define NSLog(FORMAT, ...) fprintf(stderr, "%s:%zd\t%s\n", [[[NSString stringWithUTF8String: __FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] UTF8String]);
+#define NSLog(FORMAT, ...) fprintf(stderr,"---此输出在控制器的%s方法中 第 -- %d -- 行\t%s\n",   __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(...)
+#endif
+
+
+
+#endif /* PrefixHeader_pch */
